@@ -1,0 +1,17 @@
+language: elixir
+elixir:
+- '1.2'
+otp_release:
+- '18.2'
+sudo: false
+addons:
+  postgresql: '9.4'
+before_script:
+- psql -c 'create database peepchat_test;' -U postgres
+deploy:
+  provider: heroku
+  api_key:
+    secure: GmU2cvQgDS2nk6BGojDFD3HVSidTuV5HjCJ5tOHZTRSiMxo/5zHICBs/waOpeJvNU18CL5U8Y1h68tuPXsIZDa9ngBcL+NqfvIfGX0Lt6vPhvTUH9+iPxK4ZXpIqlqvnYqLlyH/9y0qZ8zVmGa7S937UmXYBzJhgOUEdXr4epEbn7VWN+RKZFqa4XoHnFt1bQNiuQlMgdNA/5MkcPuXaySFkcxTaqFFVCI5Q3+NogWgPzy/xcETCZLV92oQBNgx6D7yRRVp6qKBpThYZurjceYsvYLMCVw+HvhGpjx8vdaK/5qemVPy0lP5hK0h9VatfFibZDK/Ql7yurAfQaOf2Q3l7pYxBeS7kGINhNarg61bWwHOYGcxv4GTSspffma2FYioqyK3/wbPwC9ofZmB4Xm/FZ5BecbQn3frcSAlJwtSQGgPOgefXtMt5AwowJnXiuN8YfodYRHbOyLEuzy8TYa6beCS1zqCaihIRwfgdKV2EwJNciL0ayiNOLWZXbwpyeLCz+NwNpW8o16B7fTI4BlJtyM6/BfA8cp0ltWURFEnObIzKwvkBV7Vk07vsMJ0rs2BSjl3TmSoDKgFvKko/nAH2KpoudsAwelhuViRPmaXc1S1RWenJ7J+Zs1CbOKq1ZhwezdMdhAJDAbpY5Ax8L8Pel6jqa9E36JXOhtRKFcI=
+  app: calm-taiga-18617
+  on:
+    repo: laantorchaweb/internal-chat-api
